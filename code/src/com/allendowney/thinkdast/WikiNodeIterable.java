@@ -74,6 +74,7 @@ public class WikiNodeIterable implements Iterable<Node> {
 			// otherwise pop the next Node off the stack
 			Node node = stack.pop();
 			//System.out.println(node);
+			
 
 			// push the children onto the stack in reverse order
 			List<Node> nodes = new ArrayList<Node>(node.childNodes());

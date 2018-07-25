@@ -23,6 +23,7 @@ public class WikiFetcher {
 	 * @return
 	 * @throws IOException
 	 */
+	
 	public Elements fetchWikipedia(String url) throws IOException {
 		sleepIfNeeded();
 
@@ -34,6 +35,7 @@ public class WikiFetcher {
 		Element content = doc.getElementById("mw-content-text");
 
 		// TODO: avoid selecting paragraphs from sidebars and boxouts
+		//?content.removeAttr("table");
 		Elements paras = content.select("p");
 		return paras;
 	}
@@ -45,6 +47,7 @@ public class WikiFetcher {
 	 * @return
 	 * @throws IOException
 	 */
+	
 	public Elements readWikipedia(String url) throws IOException {
 		URL realURL = new URL(url);
 
@@ -88,8 +91,7 @@ public class WikiFetcher {
 	public static void main(String[] args) throws IOException {
 		WikiFetcher wf = new WikiFetcher();
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
-		Elements paragraphs = wf.readWikipedia(url);
-
+		Elements paragraphs = wf.fetchWikipedia(url);
 		for (Element paragraph: paragraphs) {
 			System.out.println(paragraph);
 		}

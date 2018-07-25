@@ -23,6 +23,7 @@ public class ListClientExampleTest {
 		@SuppressWarnings("rawtypes")
 		List list = lce.getList();
 		assertThat(list, instanceOf(ArrayList.class) );
+		
 	}
 
 }
